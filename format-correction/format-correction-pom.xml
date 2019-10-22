@@ -28,13 +28,13 @@
     <compilerCompliance>1.8</compilerCompliance>
     <compilerTargetPlatform>1.8</compilerTargetPlatform>
   </configuration>
-  	  <dependencies>
-            <dependency>
-              <groupId>com.stong.format</groupId>
-              <artifactId>format-configurations</artifactId>
-              <version>1.0-SNAPSHOT</version>
-            </dependency>
-          </dependencies>
+	<dependencies>
+      <dependency>
+        <groupId>com.stong.format</groupId>
+        <artifactId>format-configurations</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
 	<executions>
 		<execution>
 			<phase>validate</phase>

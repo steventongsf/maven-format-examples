@@ -1,0 +1,14 @@
+NewlineAtEndOfFile
+FileTabCharacter
+RegexpSingleline
+TreeWalker
+EmptyForIteratorPad
+GenericWhitespace
+MethodParamPad
+NoWhitespaceAfter
+NoWhitespaceBefore
+OperatorWrap
+ParenPad
+TypecastParenPad
+WhitespaceAfter
+WhitespaceAround

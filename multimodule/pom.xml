@@ -11,6 +11,9 @@
 	    <maven.compiler.source>1.8</maven.compiler.source>
 	    <custom.formatter.rules.xml>eclipse/eclipse-format-rules.xml</custom.formatter.rules.xml>
 	    <custom.checkstyle.rules.xml>checkstyle/checkstyle-format-rules.xml</custom.checkstyle.rules.xml>
+	    <format.config.groupId>com.stong.format</format.config.groupId>
+	    <format.config.artifactId>format-configurations</format.config.artifactId>
+	    <format.config.version>1.0-SNAPSHOT</format.config.version>
 	</properties>
   
 	<build>

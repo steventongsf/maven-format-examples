@@ -15,7 +15,6 @@
     <version>1.0-SNAPSHOT</version>
 
   <build>
-    <!-- To define the plugin version in your parent POM -->
       <plugins>
       	<plugin>
 			<groupId>net.revelc.code.formatter</groupId>

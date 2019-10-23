@@ -97,6 +97,6 @@
 	</dependencyManagement>
   <modules>
   	<module>../format-configurations</module>
-    <module>../format-correction</module>
+    <module>../format-update-validate</module>
   </modules>
 </project>

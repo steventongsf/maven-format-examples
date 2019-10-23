@@ -9,38 +9,72 @@
 		<encoding>UTF-8</encoding>
 	    <maven.compiler.target>1.8</maven.compiler.target>
 	    <maven.compiler.source>1.8</maven.compiler.source>
+	    <custom.formatter.rules.xml>eclipse/eclipse-format-rules.xml</custom.formatter.rules.xml>
+	    <custom.checkstyle.rules.xml>checkstyle/checkstyle-format-rules.xml</custom.checkstyle.rules.xml>
 	</properties>
   
 	<build>
 	  <pluginManagement>
 	    <plugins>
-	      <plugin>
-	        <groupId>net.revelc.code.formatter</groupId>
-	        <artifactId>formatter-maven-plugin</artifactId>
-	        <version>2.10.0</version>
-	      </plugin>
-	    </plugins>
-	  </pluginManagement>
-	  <plugins>
 	    <plugin>
 	      <groupId>net.revelc.code.formatter</groupId>
 	      <artifactId>formatter-maven-plugin</artifactId>
 	      <executions>
 	        <execution>
+	        	<id>fix-format</id>
 	        	<phase>validate</phase>
 	          <goals>
 	            <goal>format</goal>
 	          </goals>
 	          <configuration>
-	            <configFile>eclipse/eclipse-format-rules.xml</configFile>
+	            <configFile>${custom.formatter.rules.xml}</configFile>
 			    <encoding>UTF-8</encoding>
 			    <compilerSource>1.8</compilerSource>
 			    <compilerCompliance>1.8</compilerCompliance>
-			    <compilerTargetPlatform>1.8</compilerTargetPlatform>	            
+			    <compilerTargetPlatform>1.8</compilerTargetPlatform>
 	          </configuration>
             </execution>
 	      </executions>
 	    </plugin>
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-checkstyle-plugin</artifactId>
+	        <version>3.1.0</version>
+	        <configuration>
+		        <configLocation>checkstyle/checkstyle-format-rules.xml</configLocation>
+		        <encoding>UTF-8</encoding>
+	        </configuration>
+			<dependencies>
+		      <dependency>
+		        <groupId>com.stong.format</groupId>
+		        <artifactId>format-configurations</artifactId>
+		        <version>1.0-SNAPSHOT</version>
+		      </dependency>
+		    </dependencies>
+	        <executions>
+				<execution>
+				  <id>validate-format</id>
+				  <phase>compile</phase>
+				  <goals>
+				    <goal>check</goal>
+				  </goals>
+		    	</execution>
+	   		</executions>
+	      </plugin>
+	    </plugins>
+	  </pluginManagement>
+	  <plugins>
+	      <plugin>
+	          <groupId>org.apache.maven.plugins</groupId>
+	          <artifactId>maven-site-plugin</artifactId>
+	          <version>3.7.1</version>
+	      </plugin>
+	
+	      <plugin>
+	          <groupId>org.apache.maven.plugins</groupId>
+	          <artifactId>maven-project-info-reports-plugin</artifactId>
+	          <version>3.0.0</version>
+	      </plugin>
 	  </plugins>
 	</build>
 	<dependencyManagement>
@@ -51,9 +85,15 @@
 		  		<version>4.11</version>
 		  		<scope>test</scope>
 		  	</dependency>
+            <dependency>
+                <groupId>com.stong.format</groupId>
+                <artifactId>format-configurations</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
   <modules>
+  	<module>../format-configurations</module>
     <module>../format-correction</module>
   </modules>
 </project>

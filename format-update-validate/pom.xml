@@ -21,18 +21,29 @@
   <build>
     <!-- To use the plugin goals in your POM or parent POM -->
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.1.0</version>
-		<dependencies>
-          <dependency>
-              <groupId>com.stong.format</groupId>
-              <artifactId>format-configurations</artifactId>
-              <version>1.0-SNAPSHOT</version>
-          </dependency>
-   		</dependencies>
-      </plugin>
+	    <plugin>
+	      <groupId>org.apache.maven.plugins</groupId>
+	      <artifactId>maven-checkstyle-plugin</artifactId>
+	      <version>3.1.0</version>
+	      <dependencies>
+	        <dependency>
+	            <groupId>${format.config.groupId}</groupId>
+	            <artifactId>${format.config.artifactId}</artifactId>
+	            <version>${format.config.version}</version>
+	        </dependency>
+	      </dependencies>
+	    </plugin>
+		<plugin>
+			<groupId>net.revelc.code.formatter</groupId>
+			<artifactId>formatter-maven-plugin</artifactId>
+	 		<dependencies>
+	            <dependency>
+	                <groupId>${format.config.groupId}</groupId>
+	                <artifactId>${format.config.artifactId}</artifactId>
+	                <version>${format.config.version}</version>
+	            </dependency>
+      		</dependencies>
+		</plugin>
     </plugins>
   </build>
   <dependencies>

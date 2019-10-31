@@ -12,3 +12,5 @@ Plugins used:
 ## format-update-validate
 ## format-configurations
 
+# Links
+https://checkstyle.sourceforge.io/
